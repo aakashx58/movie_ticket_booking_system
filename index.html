@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0">
+	<title>Ticket Booking</title>
+	<script src="https://cdn.tailwindcss.com"></script>
+    <link href="style.css" type="text/css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body class=" bg-no-repeat bg-center bg-cover bg-[url('2148434425.jpg')]">
+	<div class="min-h-screen flex justify-center items-center">
+		<div class="bg-white p-8 rounded-lg shadow-md container max-w-md">
+			<h2 class="text-2xl font-semibold mb-4 text-center">
+				Book Your Tickets
+			</h2>
+			<form action="#" method="POST" class="space-y-4" id="bookingForm" onsubmit="submitForm(event)">
+				<div>
+					<label for="category"
+						class="block text-sm font-medium 
+								form-label text-gray-700">
+						Category
+					</label>
+					<select id="category" name="category"
+							class="w-full border rounded-md p-2 form-select focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" required onchange="changeSeatType()">
+						<option value="" disabled selected>
+							Select Category
+						</option>
+						<option value="bus">Bus</option>
+						<option value="train">Train</option>
+						<option value="movie">Movie</option>
+					</select>
+				</div>
+				<div>
+					<label for="timing" class="block text-sm font-medium form-label text-gray-700">
+						Timing
+					</label>
+					<select id="timing" name="timing"
+							class="w-full border rounded-md p-2 form-select focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
+						<option value="" disabled selected>
+						Select Timing
+						</option>
+						<option value="10am">10:00 AM</option>
+						<option value="12pm">12:00 PM</option>
+						<option value="1pm">01:00 PM</option>
+						<option value="3pm">03:00 PM</option>
+						<option value="6pm">06:00 PM</option>
+						<option value="8pm">08:00 PM</option>
+					</select>
+				</div>
+				<div>
+					<label for="availableSeat"
+						class="block text-sm font-medium 
+								form-label text-gray-700">
+						Available Seat</label>
+					<select id="availableSeat" name="availableSeat"
+							class="w-full border rounded-md p-2 form-select focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+						required>
+						<option value="" disabled selected>
+							Select Available Seat
+						</option>
+					</select>
+				</div>
+				<div>
+					<label for="name"
+						class="block text-sm font-medium
+								form-label text-gray-700">
+						Name
+					</label>
+					<input type="text" id="name" name="name"
+						class="w-full border rounded-md p-2 form-input focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+							placeholder="Enter name" required>
+				</div>
+				<div>
+					<label for="bookingDate"
+						class="block text-sm font-medium form-label text-gray-700">
+						Booking Date
+					</label>
+					<input type="date" id="bookingDate"
+						name="bookingDate"
+							class="w-full border rounded-md p-2 form-input focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
+				</div>
+				<div>
+					<label for="seatType"
+						class="block text-sm font-medium form-label text-gray-700">
+						Seat Type
+					</label>
+					<select id="seatType" name="seatType"
+							class="w-full border rounded-md p-2 form-select focus:outline-none focus:ring-2 focus:ring-blue-500
+								focus:border-transparent" required>
+						<option value="" disabled selected>
+							Select Seat Type
+						</option>
+					</select>
+				</div>
+				<div>
+					<button type="submit"
+							class="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition-colors form-button">
+						Book Now
+					</button>
+				</div>
+			</form>
+			<div id="bookingDetails"
+				class="hidden mt-4 booking-details text-gray-700">
+				<h3 class="text-xl font-semibold">
+					Booking Details:
+				</h3>
+				<p id="categoryDisplay"></p>
+				<p id="timingDisplay"></p>
+				<p id="availableSeatDisplay"></p>
+				<p id="nameDisplay"></p>
+				<p id="bookingDateDisplay"></p>
+				<p id="seatTypeDisplay"></p>
+				<p class="text-green-500 font-semibold success-message" id="successMessage">
+				</p>
+				<button id="downloadTicketBtn"
+						class="bg-blue-500 text-white px-4 py-2 rounded-md mt-2 hidden">
+					Download Ticket
+				</button>
+			</div>
+		</div>
+	</div>
+<script src="script.js"></script>
+</body>
+
+</html>
